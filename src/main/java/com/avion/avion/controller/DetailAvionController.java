@@ -69,6 +69,7 @@ public class DetailAvionController{
             System.out.println(detailAvions.size());
             data.setData(detailAvions);
         } catch (Exception ex) {
+            ex.printStackTrace();
             status = 500;
             message = "Error d'acces base de donnee detecter";
             Erreur __error = new Erreur(status, message);
