@@ -28,7 +28,7 @@ public class ImageController {
     int status;
 
     // UpdateImage
-    @RequestMapping(value = "/updateImage/{AvionId}", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/updateImage/{AvionId}", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
     @CrossOrigin
     public ArrayList<Data> getImage(@RequestBody String img, @PathVariable(value = "AvionId") Integer AvionId) {
