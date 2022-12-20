@@ -25,13 +25,13 @@ public class LoginRepository implements LoginDAO {
      private JdbcTemplate jdbcTemplate;
 
      public void inscription(Login login) {
-          String sql = "INSERT INTO admin VALUES (DEFAULT,?,md5(?))";
+          String sql = "INSERT INTO admin VALUES (DEFAULT,?,?)";
           jdbcTemplate.update(sql, login.getLogin(), login.getMdp());
      }
 
      public Token Login(Login login) {
           Token tokenVR = null;
-          String sql = "select * from admin where login=? and mdp=md5(?)";
+          String sql = "select * from admin where login=? and mdp=?";
           ArrayList<Login> result = (ArrayList<Login>) jdbcTemplate.query(sql,
                     new BeanPropertyRowMapper<Login>(Login.class), login.getLogin(), login.getMdp());
           int idutil = 0;
